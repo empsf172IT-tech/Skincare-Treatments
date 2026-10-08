@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMERA | Premium Skincare Community</title>
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23a18b7d"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z"/></svg>'>
+    <meta name="description"
+        content="A global digital community where people share skincare treatment experiences, discover trusted discussions, and ask verified experts questions.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        light: {
+                            bg: '#fcfcfc', // warm ivory
+                            card: '#ffffff',
+                            primary: '#2b2b2b', // charcoal
+                            secondary: '#a18b7d', // muted rose/champagne
+                            accent: '#d9c6b8',
+                        },
+                        dark: {
+                            bg: '#141414',
+                            card: '#1e1e1e',
+                            primary: '#f4f4f4',
+                            secondary: '#c4b5a8',
+                            accent: '#8f7b6d',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Styles & Utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .dark .glass {
+            background: rgba(30, 30, 30, 0.7);
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hide scrollbar for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        [dir="rtl"] {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-light-bg text-light-primary dark:bg-dark-bg dark:text-dark-primary transition-colors duration-300 overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header
+        class="fixed w-full top-0 z-50 glass border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <svg class="w-8 h-8 text-light-secondary dark:text-dark-secondary" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z" />
+                    </svg>
+                    <span class="font-serif text-2xl font-semibold tracking-wider">LUMERA</span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 lg:space-x-12 rtl:space-x-reverse" id="desktop-nav">
+                    <a href="#hero"
+                        class="text-sm font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Home</a>
+                    <a href="#discussions"
+                        class="text-sm font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Discussions</a>
+                    <a href="#treatments"
+                        class="text-sm font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Treatments</a>
+                    <a href="#experts"
+                        class="text-sm font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Experts</a>
+                    <a href="#community"
+                        class="text-sm font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Community</a>
+                    <a href="#activity"
+                        class="text-sm font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Activity</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"><i
+                            class="fa-solid fa-moon"></i></button>
+                    <a href="#" id="login-btn-desktop"
+                        class="bg-light-primary text-white dark:bg-dark-primary dark:text-black px-5 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">Login</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-2xl"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#hero" class="mobile-link block px-3 py-2 text-base font-medium">Home</a>
+                <a href="#discussions" class="mobile-link block px-3 py-2 text-base font-medium">Discussions</a>
+                <a href="#treatments" class="mobile-link block px-3 py-2 text-base font-medium">Treatments</a>
+                <a href="#experts" class="mobile-link block px-3 py-2 text-base font-medium">Experts</a>
+                <a href="#community" class="mobile-link block px-3 py-2 text-base font-medium">Community</a>
+                <a href="#activity" class="mobile-link block px-3 py-2 text-base font-medium">Activity</a>
+                <div
+                    class="flex justify-between items-center px-3 py-4 border-t border-gray-100 dark:border-gray-800 mt-2">
+                    <button id="mobile-theme-toggle" class="p-2 bg-gray-100 dark:bg-gray-800 rounded-full"><i
+                            class="fa-solid fa-moon"></i></button>
+                </div>
+                <a href="#" id="login-btn-mobile" class="mobile-link block text-center bg-light-primary text-white dark:bg-dark-primary dark:text-black px-5 py-3 rounded-full font-medium mt-4">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- SECTION 1: PREMIUM COMMUNITY HERO -->
+        <section id="hero" class="relative min-h-[90vh] flex items-center overflow-hidden py-20">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1615397323187-573e04a58b66?q=80&w=2000&auto=format&fit=crop"
+                    alt="Premium Skincare"
+                    class="w-full h-full object-cover opacity-30 dark:opacity-20 mix-blend-multiply dark:mix-blend-overlay">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-light-bg via-light-bg/80 to-transparent dark:from-dark-bg dark:via-dark-bg/80">
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-up space-y-8">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-accent/20 dark:bg-dark-accent/20 text-sm text-light-secondary dark:text-dark-secondary font-medium">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                            <span>2,431 members active now</span>
+                        </div>
+                        <h1 class="text-5xl md:text-7xl font-serif leading-tight">Better Skin Starts With Better
+                            Conversations.</h1>
+                        <p
+                            class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-lg font-light leading-relaxed">
+                            Discover real treatment experiences, discuss routines, ask verified experts, and learn from
+                            a trusted global community.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="#discussions"
+                                class="bg-light-primary text-white dark:bg-dark-primary dark:text-black px-8 py-4 rounded-full text-sm font-medium hover:shadow-lg transition-all hover:-translate-y-1">Explore
+                                Discussions</a>
+                            <a href="#experts"
+                                class="border border-light-primary text-light-primary dark:border-dark-primary dark:text-dark-primary px-8 py-4 rounded-full text-sm font-medium hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-black transition-all">Ask
+                                an Expert</a>
+                        </div>
+                    </div>
+
+                    <div class="relative h-[600px] hidden lg:block fade-up" style="transition-delay: 200ms;">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop"
+                            alt="Editorial Beauty"
+                            class="absolute right-0 top-10 w-3/4 h-[500px] object-cover rounded-2xl shadow-2xl">
+
+                        <!-- Floating Card 1 -->
+                        <div
+                            class="absolute left-0 top-32 bg-white dark:bg-dark-card p-4 rounded-xl shadow-xl glass max-w-xs animate-[bounce_6s_ease-in-out_infinite]">
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
+                                    alt="User" class="w-10 h-10 rounded-full">
+                                <div>
+                                    <p class="text-sm font-semibold">Sarah Jenkins</p>
+                                    <p class="text-xs text-gray-500">Asking about Microneedling</p>
+                                </div>
+                            </div>
+                            <p class="text-sm font-serif italic text-gray-700 dark:text-gray-200">"What was your
+                                recovery time for RF microneedling?"</p>
+                        </div>
+
+                        <!-- Floating Card 2 -->
+                        <div
+                            class="absolute right-10 bottom-20 bg-white dark:bg-dark-card p-4 rounded-xl shadow-xl glass max-w-xs animate-[bounce_5s_ease-in-out_infinite_reverse]">
+                            <div
+                                class="flex items-center gap-2 text-xs font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                                <i class="fa-solid fa-circle-check"></i> Verified Expert Answer
+                            </div>
+                            <p class="text-sm text-gray-700 dark:text-gray-200">"Expect 2-3 days of mild redness.
+                                Hydration is key during this phase."</p>
+                            <p class="text-xs text-gray-500 mt-2">— Dr. Elena Rostova</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: COMMUNITY PULSE -->
+        <section class="py-16 bg-white dark:bg-dark-card border-y border-gray-100 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x divide-gray-200 dark:divide-gray-800 rtl:divide-x-reverse">
+                    <div class="fade-up px-4 text-center group cursor-pointer">
+                        <p
+                            class="text-4xl font-serif text-light-secondary dark:text-dark-secondary mb-2 group-hover:scale-110 transition-transform">
+                            145k+</p>
+                        <p class="text-sm text-gray-500 uppercase tracking-wider font-medium">Active Members</p>
+                    </div>
+                    <div class="fade-up px-4 text-center group cursor-pointer" style="transition-delay: 100ms;">
+                        <p
+                            class="text-4xl font-serif text-light-secondary dark:text-dark-secondary mb-2 group-hover:scale-110 transition-transform">
+                            32k</p>
+                        <p class="text-sm text-gray-500 uppercase tracking-wider font-medium">Discussions</p>
+                    </div>
+                    <div class="fade-up px-4 text-center group cursor-pointer" style="transition-delay: 200ms;">
+                        <p
+                            class="text-4xl font-serif text-light-secondary dark:text-dark-secondary mb-2 group-hover:scale-110 transition-transform">
+                            8,400</p>
+                        <p class="text-sm text-gray-500 uppercase tracking-wider font-medium">Expert Answers</p>
+                    </div>
+                    <div class="fade-up px-4 text-center group cursor-pointer" style="transition-delay: 300ms;">
+                        <p
+                            class="text-4xl font-serif text-light-secondary dark:text-dark-secondary mb-2 group-hover:scale-110 transition-transform">
+                            98%</p>
+                        <p class="text-sm text-gray-500 uppercase tracking-wider font-medium">Helpful Rate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: TRENDING DISCUSSIONS -->
+        <section id="discussions" class="py-24 bg-light-bg dark:bg-dark-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 fade-up">
+                    <div>
+                        <h2 class="text-4xl font-serif mb-4">Trending Discussions</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Join the conversation with the community.</p>
+                    </div>
+                    <div
+                        class="flex space-x-2 rtl:space-x-reverse mt-6 md:mt-0 bg-gray-100 dark:bg-gray-800 p-1 rounded-full w-max">
+                        <button
+                            class="px-6 py-2 rounded-full text-sm font-medium bg-white dark:bg-gray-700 shadow-sm transition">Trending</button>
+                        <button
+                            class="px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition">Latest</button>
+                        <button
+                            class="px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition">Unanswered</button>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <!-- Discussion Card 1 -->
+                    <div
+                        class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-800 fade-up group flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.pexels.com/photos/5588001/pexels-photo-5588001.jpeg"
+                                    class="w-10 h-10 rounded-full" alt="User">
+                                <div>
+                                    <p class="font-medium text-sm">Emma L.</p>
+                                    <p class="text-xs text-gray-500">2 hours ago in <span
+                                            class="text-light-secondary dark:text-dark-secondary font-medium">Acne</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <button class="text-gray-400 hover:text-light-primary dark:hover:text-white transition"><i
+                                    class="fa-regular fa-bookmark"></i></button>
+                        </div>
+                        <h3
+                            class="text-xl font-serif font-semibold mb-2 group-hover:text-light-secondary transition-colors">
+                            What actually helped with persistent adult acne?</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">I've tried salicylic acid,
+                            benzoyl peroxide, and niacinamide. While they help temporarily, I keep breaking out along my
+                            jawline. Has anyone had success with Spironolactone?</p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-4 mt-auto">
+                            <div class="flex items-center gap-4 text-sm text-gray-500">
+                                <span class="flex items-center gap-1 hover:text-light-secondary cursor-pointer"><i
+                                        class="fa-solid fa-arrow-up"></i> 142</span>
+                                <span class="flex items-center gap-1 hover:text-light-secondary cursor-pointer"><i
+                                        class="fa-regular fa-comment"></i> 34</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-2 text-xs font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded-full">
+                                <i class="fa-solid fa-check-circle"></i> Expert Answered
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Discussion Card 2 -->
+                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-800 fade-up group flex flex-col h-full"
+                        style="transition-delay: 100ms;">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
+                                    class="w-10 h-10 rounded-full" alt="User">
+                                <div>
+                                    <p class="font-medium text-sm">Marcus K.</p>
+                                    <p class="text-xs text-gray-500">5 hours ago in <span
+                                            class="text-light-secondary dark:text-dark-secondary font-medium">Retinol</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <button class="text-gray-400 hover:text-light-primary dark:hover:text-white transition"><i
+                                    class="fa-regular fa-bookmark"></i></button>
+                        </div>
+                        <h3
+                            class="text-xl font-serif font-semibold mb-2 group-hover:text-light-secondary transition-colors">
+                            Retinol irritation: should I push through or reduce frequency?</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Started 0.05% Tretinoin
+                            two weeks ago using the sandwich method. Still experiencing significant flaking and
+                            tightness. Is this normal 'purging' or barrier damage?</p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-4 mt-auto">
+                            <div class="flex items-center gap-4 text-sm text-gray-500">
+                                <span class="flex items-center gap-1 hover:text-light-secondary cursor-pointer"><i
+                                        class="fa-solid fa-arrow-up"></i> 89</span>
+                                <span class="flex items-center gap-1 hover:text-light-secondary cursor-pointer"><i
+                                        class="fa-regular fa-comment"></i> 56</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center fade-up">
+                    <button
+                        class="border border-gray-300 dark:border-gray-700 px-8 py-3 rounded-full text-sm font-medium hover:border-light-primary hover:text-light-primary dark:hover:border-white dark:hover:text-white transition">View
+                        All Discussions</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TREATMENT TOPIC EXPLORER -->
+        <section id="treatments" class="py-24 bg-white dark:bg-dark-card border-t border-gray-100 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+                    <h2 class="text-4xl font-serif mb-4">Explore by Treatment</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Find experiences, advice, and answers tailored to
+                        specific skincare concerns and procedures.</p>
+                </div>
+
+                <div class="flex overflow-x-auto gap-6 pb-8 no-scrollbar snap-x fade-up">
+                    <!-- Topic Card -->
+                    <div class="min-w-[280px] group cursor-pointer snap-start">
+                        <div class="relative h-[350px] rounded-2xl overflow-hidden mb-4">
+                            <img src="https://images.pexels.com/photos/6476074/pexels-photo-6476074.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                                alt="Acne">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-2xl font-serif text-white mb-1">Acne & Blemishes</h3>
+                                <p class="text-gray-300 text-sm">12,400+ discussions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Topic Card -->
+                    <div class="min-w-[280px] group cursor-pointer snap-start">
+                        <div class="relative h-[350px] rounded-2xl overflow-hidden mb-4">
+                            <img src="https://images.pexels.com/photos/10222449/pexels-photo-10222449.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                                alt="Anti-Aging">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-2xl font-serif text-white mb-1">Anti-Aging</h3>
+                                <p class="text-gray-300 text-sm">8,200+ discussions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Topic Card -->
+                    <div class="min-w-[280px] group cursor-pointer snap-start">
+                        <div class="relative h-[350px] rounded-2xl overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=600&auto=format&fit=crop"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                                alt="Laser">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-2xl font-serif text-white mb-1">Laser Treatments</h3>
+                                <p class="text-gray-300 text-sm">4,500+ discussions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Topic Card -->
+                    <div class="min-w-[280px] group cursor-pointer snap-start">
+                        <div class="relative h-[350px] rounded-2xl overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=600&auto=format&fit=crop"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                                alt="Hyperpigmentation">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-2xl font-serif text-white mb-1">Hyperpigmentation</h3>
+                                <p class="text-gray-300 text-sm">9,100+ discussions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: EXPERT Q&A -->
+        <section id="experts" class="py-24 bg-light-bg dark:bg-dark-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-3 gap-12">
+                    <div class="lg:col-span-1 fade-up">
+                        <h2 class="text-4xl font-serif mb-6">Ask The Experts</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-8">Get insights from board-certified
+                            dermatologists, aestheticians, and skincare professionals who verify the science behind the
+                            routines.</p>
+                        <button
+                            class="w-full bg-light-primary text-white dark:bg-dark-primary dark:text-black py-4 rounded-xl font-medium hover:opacity-90 transition shadow-lg mb-4">Ask
+                            a Skincare Question</button>
+                        <p class="text-xs text-gray-500 italic">Disclaimer: Content is for informational purposes and
+                            does not replace professional medical advice.</p>
+                    </div>
+
+                    <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
+                        <!-- Expert Card -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm fade-up"
+                            style="transition-delay: 100ms;">
+                            <div class="flex gap-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop"
+                                    class="w-16 h-16 rounded-full object-cover" alt="Dr. Chen">
+                                <div>
+                                    <h4 class="font-bold text-lg flex items-center gap-2">Dr. Sarah Chen <i
+                                            class="fa-solid fa-circle-check text-blue-500 text-sm"></i></h4>
+                                    <p class="text-sm text-gray-500">Board Certified Dermatologist</p>
+                                    <div class="flex items-center gap-1 text-xs text-yellow-500 mt-1">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                        <span class="text-gray-500 ml-1">(420 answers)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 mt-4">
+                                <p class="text-xs text-gray-500 font-medium mb-1">RECENT ANSWER</p>
+                                <p class="text-sm font-serif italic line-clamp-3">"When introducing Vitamin C and
+                                    Retinol, never use them in the same routine. Vitamin C in the morning for
+                                    environmental protection, Retinol at night for repair..."</p>
+                            </div>
+                        </div>
+
+                        <!-- Expert Card -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm fade-up"
+                            style="transition-delay: 200ms;">
+                            <div class="flex gap-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop"
+                                    class="w-16 h-16 rounded-full object-cover" alt="Dr. Ahmed">
+                                <div>
+                                    <h4 class="font-bold text-lg flex items-center gap-2">Dr. Tariq Ahmed <i
+                                            class="fa-solid fa-circle-check text-blue-500 text-sm"></i></h4>
+                                    <p class="text-sm text-gray-500">Aesthetic Practitioner</p>
+                                    <div class="flex items-center gap-1 text-xs text-yellow-500 mt-1">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star-half-stroke"></i>
+                                        <span class="text-gray-500 ml-1">(315 answers)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 mt-4">
+                                <p class="text-xs text-gray-500 font-medium mb-1">RECENT ANSWER</p>
+                                <p class="text-sm font-serif italic line-clamp-3">"Post-inflammatory erythema (PIE)
+                                    responds best to vascular lasers like Vbeam, whereas post-inflammatory
+                                    hyperpigmentation (PIH) requires tyrosinase inhibitors..."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: TREATMENT EXPERIENCE STORIES -->
+        <section class="py-24 bg-white dark:bg-dark-card border-t border-gray-100 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-up">
+                    <h2 class="text-4xl font-serif mb-4">Real Journeys</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Editorial-style diaries of real member treatment
+                        experiences.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Story Card -->
+                    <div class="group cursor-pointer fade-up">
+                        <div class="relative overflow-hidden rounded-2xl mb-6 h-80">
+                            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=800&auto=format&fit=crop"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                                alt="Journey">
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                                6 Month Progress</div>
+                        </div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=50&h=50&fit=crop"
+                                class="w-8 h-8 rounded-full" alt="User">
+                            <p class="text-sm font-medium">ElenaV</p>
+                        </div>
+                        <h3 class="text-2xl font-serif mb-2 group-hover:text-light-secondary transition">Clearing adult
+                            acne with a minimalist routine</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Stripping back my 10-step routine to
+                            just a gentle cleanser, moisturizer, and adapalene changed everything.</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-heart text-red-400"></i>
+                                1.2k</span>
+                            <span class="font-medium text-light-primary dark:text-white group-hover:underline">View
+                                Journey &rarr;</span>
+                        </div>
+                    </div>
+
+                    <!-- Story Card -->
+                    <div class="group cursor-pointer fade-up" style="transition-delay: 100ms;">
+                        <div class="relative overflow-hidden rounded-2xl mb-6 h-80">
+                            <img src="https://images.pexels.com/photos/6543329/pexels-photo-6543329.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                                alt="Journey">
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                                In-Clinic Treatment</div>
+                        </div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <img src="https://images.pexels.com/photos/31233909/pexels-photo-31233909.jpeg"
+                                class="w-8 h-8 rounded-full" alt="User">
+                            <p class="text-sm font-medium">David_Skin</p>
+                        </div>
+                        <h3 class="text-2xl font-serif mb-2 group-hover:text-light-secondary transition">First Clear +
+                            Brilliant Laser experience</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Day-by-day diary of recovery, pain
+                            levels, and when the 'glow' finally appeared.</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-heart text-red-400"></i>
+                                845</span>
+                            <span class="font-medium text-light-primary dark:text-white group-hover:underline">View
+                                Journey &rarr;</span>
+                        </div>
+                    </div>
+
+                    <!-- Story Card -->
+                    <div class="group cursor-pointer fade-up" style="transition-delay: 200ms;">
+                        <div class="relative overflow-hidden rounded-2xl mb-6 h-80">
+                            <img src="https://images.pexels.com/photos/14920146/pexels-photo-14920146.jpeg"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                                alt="Journey">
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                                1 Year Journey</div>
+                        </div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=50&h=50&fit=crop"
+                                class="w-8 h-8 rounded-full" alt="User">
+                            <p class="text-sm font-medium">Mia_Glows</p>
+                        </div>
+                        <h3 class="text-2xl font-serif mb-2 group-hover:text-light-secondary transition">Fading stubborn
+                            melasma without hydroquinone</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">My protocol of tranexamic acid, azelaic
+                            acid, and religious sun protection.</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-heart text-red-400"></i>
+                                2.1k</span>
+                            <span class="font-medium text-light-primary dark:text-white group-hover:underline">View
+                                Journey &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 & 8: COMMUNITY PROFILES & BADGES -->
+        <section id="community" class="py-24 bg-light-bg dark:bg-dark-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <!-- Profiles -->
+                    <div class="fade-up">
+                        <h2 class="text-4xl font-serif mb-2">Featured Members</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-8">Connect with people on similar journeys.</p>
+
+                        <div class="space-y-4">
+                            <!-- Profile -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-5 rounded-2xl flex items-center justify-between border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative">
+                                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop"
+                                            class="w-14 h-14 rounded-full" alt="User">
+                                        <div class="absolute -bottom-1 -right-1 bg-yellow-400 w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-dark-card text-[10px] text-black"
+                                            title="Skin Knowledge Leader"><i class="fa-solid fa-crown"></i></div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-base">Chloe T.</h4>
+                                        <p class="text-xs text-light-secondary dark:text-dark-secondary">Skin Knowledge
+                                            Leader</p>
+                                        <p class="text-xs text-gray-500 mt-1">Focus: Barrier Repair, Sensitive Skin</p>
+                                    </div>
+                                </div>
+                                <button
+                                    class="px-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition">Follow</button>
+                            </div>
+                            <!-- Profile -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-5 rounded-2xl flex items-center justify-between border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop"
+                                            class="w-14 h-14 rounded-full" alt="User">
+                                        <div class="absolute -bottom-1 -right-1 bg-blue-400 w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-dark-card text-[10px] text-white"
+                                            title="Trusted Contributor"><i class="fa-solid fa-shield-halved"></i></div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-base">Alex Rivera</h4>
+                                        <p class="text-xs text-light-secondary dark:text-dark-secondary">Trusted
+                                            Contributor</p>
+                                        <p class="text-xs text-gray-500 mt-1">Focus: Tretinoin, Men's Skincare</p>
+                                    </div>
+                                </div>
+                                <button
+                                    class="px-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition">Follow</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Badges -->
+                    <div class="fade-up" style="transition-delay: 150ms;">
+                        <h2 class="text-4xl font-serif mb-2">Reputation & Rewards</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-8">Earn recognition for helping others.</p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <!-- Badge -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 rounded-2xl border border-gray-100 dark:border-gray-800 text-center hover:scale-105 transition cursor-pointer group relative">
+                                <div
+                                    class="w-16 h-16 mx-auto bg-amber-50 dark:bg-amber-900/20 rounded-full flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-hand-holding-heart text-2xl text-amber-500"></i>
+                                </div>
+                                <p class="text-sm font-bold">Helpful Voice</p>
+                                <p class="text-xs text-gray-500 mt-1">50+ upvotes</p>
+                            </div>
+                            <!-- Badge -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 rounded-2xl border border-gray-100 dark:border-gray-800 text-center hover:scale-105 transition cursor-pointer">
+                                <div
+                                    class="w-16 h-16 mx-auto bg-purple-50 dark:bg-purple-900/20 rounded-full flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-microscope text-2xl text-purple-500"></i>
+                                </div>
+                                <p class="text-sm font-bold">Science Nerd</p>
+                                <p class="text-xs text-gray-500 mt-1">Ingredient expert</p>
+                            </div>
+                            <!-- Badge -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 rounded-2xl border border-gray-100 dark:border-gray-800 text-center hover:scale-105 transition cursor-pointer">
+                                <div
+                                    class="w-16 h-16 mx-auto bg-green-50 dark:bg-green-900/20 rounded-full flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-leaf text-2xl text-green-500"></i>
+                                </div>
+                                <p class="text-sm font-bold">Holistic Guide</p>
+                                <p class="text-xs text-gray-500 mt-1">Routine builder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: REAL-TIME ACTIVITY FEED -->
+        <section id="activity" class="py-24 bg-white dark:bg-dark-card border-t border-gray-100 dark:border-gray-800">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between mb-10 fade-up">
+                    <h2 class="text-3xl font-serif">Community Pulse</h2>
+                    <div class="flex items-center gap-2 text-sm font-medium">
+                        <span class="relative flex h-3 w-3">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        Live Activity
+                    </div>
+                </div>
+
+                <div class="relative border-l border-gray-200 dark:border-gray-800 ml-4 space-y-8" id="activity-feed">
+                    <!-- Activity Item -->
+                    <div class="relative pl-8 fade-up">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50&h=50&fit=crop"
+                            class="absolute -left-4 w-8 h-8 rounded-full border-4 border-white dark:border-dark-card"
+                            alt="Avatar">
+                        <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl">
+                            <p class="text-sm"><span class="font-bold">Jessica</span> started a new discussion in <span
+                                    class="font-medium text-light-secondary dark:text-dark-secondary">Chemical
+                                    Peels</span></p>
+                            <p class="text-xs text-gray-500 mt-1">Just now</p>
+                        </div>
+                    </div>
+                    <!-- Activity Item -->
+                    <div class="relative pl-8 fade-up" style="transition-delay: 100ms;">
+                        <div
+                            class="absolute -left-4 w-8 h-8 rounded-full border-4 border-white dark:border-dark-card bg-blue-500 flex items-center justify-center text-white text-xs">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl">
+                            <p class="text-sm"><span class="font-bold">Dr. Peterson</span> answered a question about
+                                <span class="italic text-gray-600 dark:text-gray-300">Rosacea triggers</span>
+                            </p>
+                            <p class="text-xs text-gray-500 mt-1">2 mins ago</p>
+                        </div>
+                    </div>
+                    <!-- Activity Item -->
+                    <div class="relative pl-8 fade-up" style="transition-delay: 200ms;">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop"
+                            class="absolute -left-4 w-8 h-8 rounded-full border-4 border-white dark:border-dark-card"
+                            alt="Avatar">
+                        <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl">
+                            <p class="text-sm"><span class="font-bold">Marcus K.</span> earned the <span
+                                    class="font-bold text-amber-500"><i class="fa-solid fa-hand-holding-heart"></i>
+                                    Helpful Voice</span> badge!</p>
+                            <p class="text-xs text-gray-500 mt-1">5 mins ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: COMMUNITY CTA + FOOTER -->
+        <section id="cta" class="relative bg-light-primary text-white dark:bg-black pt-24 overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-20">
+                <img src="https://images.unsplash.com/photo-1615397323187-573e04a58b66?q=80&w=2000&auto=format&fit=crop"
+                    alt="Background" class="w-full h-full object-cover mix-blend-luminosity">
+            </div>
+
+            <div
+                class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pb-24 border-b border-gray-700">
+                <h2 class="text-5xl md:text-6xl font-serif mb-6 fade-up">Your Skin Journey Is Better Together.</h2>
+                <p class="text-xl text-gray-300 mb-10 font-light fade-up" style="transition-delay: 100ms;">Join millions
+                    of members sharing experiences, discovering treatments, and achieving healthier skin.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 fade-up" style="transition-delay: 200ms;">
+                    <button
+                        class="bg-white text-black px-10 py-4 rounded-full font-medium hover:bg-gray-200 transition">Join
+                        the Community</button>
+                    <button
+                        class="border border-gray-500 text-white px-10 py-4 rounded-full font-medium hover:border-white transition">Explore
+                        Discussions</button>
+                </div>
+            </div>
+
+            <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+                    <div class="col-span-2 lg:col-span-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <svg class="w-6 h-6 text-light-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z" />
+                            </svg>
+                            <span class="font-serif text-xl font-semibold tracking-wider">LUMERA</span>
+                        </div>
+                        <p class="text-gray-400 text-sm max-w-xs mb-6">A premium digital community where people share
+                            skincare treatment experiences and connect with verified experts.</p>
+                        <div class="flex space-x-4 rtl:space-x-reverse">
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                    class="fa-brands fa-instagram text-xl"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                    class="fa-brands fa-tiktok text-xl"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                    class="fa-brands fa-twitter text-xl"></i></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="font-bold mb-4 uppercase text-xs tracking-wider">Platform</h5>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="#" class="hover:text-white transition">Discussions</a></li>
+                            <li><a href="#" class="hover:text-white transition">Ask Experts</a></li>
+                            <li><a href="#" class="hover:text-white transition">Treatment Topics</a></li>
+                            <li><a href="#" class="hover:text-white transition">Journeys</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="font-bold mb-4 uppercase text-xs tracking-wider">Community</h5>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="#" class="hover:text-white transition">Guidelines</a></li>
+                            <li><a href="#" class="hover:text-white transition">Leaderboard</a></li>
+                            <li><a href="#" class="hover:text-white transition">Badges</a></li>
+                            <li><a href="#" class="hover:text-white transition">Verify as Expert</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="font-bold mb-4 uppercase text-xs tracking-wider">Legal</h5>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                            <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                            <li><a href="#" class="hover:text-white transition">Medical Disclaimer</a></li>
+                            <li><a href="#" class="hover:text-white transition">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                    <p>&copy; 2026 Lumera Community. All rights reserved.</p>
+                    <p class="mt-2 md:mt-0">Designed for Premium Skincare Discussions</p>
+                </div>
+            </footer>
+        </section>
+
+    </main>
+
+    <!-- LOGIN MODAL -->
+    <div id="login-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center">
+        <!-- Backdrop -->
+        <div id="login-modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer transition-opacity"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-white dark:bg-dark-card w-full max-w-sm mx-4 rounded-3xl shadow-2xl p-6 z-10 border border-gray-100 dark:border-gray-800">
+            <button id="close-login-modal" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="text-center mb-5">
+                <div class="flex items-center justify-center gap-2 mb-3">
+                    <svg class="w-8 h-8 text-light-secondary dark:text-dark-secondary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z"/></svg>
+                    <span class="text-2xl font-serif font-bold tracking-tight">LUMERA</span>
+                </div>
+                <h3 class="text-xl font-serif font-semibold">Welcome Back</h3>
+                <p class="text-xs text-gray-500 mt-1">Sign in to join the conversation.</p>
+            </div>
+            
+            <form class="space-y-3 mb-5" onsubmit="event.preventDefault();">
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" for="name">Full Name</label>
+                    <input type="text" id="name" class="w-full px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-secondary focus:border-transparent outline-none transition text-sm" placeholder="Enter your name">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" for="email">Email address</label>
+                    <input type="email" id="email" class="w-full px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-secondary focus:border-transparent outline-none transition text-sm" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" for="password">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-secondary focus:border-transparent outline-none transition text-sm" placeholder="Enter your password">
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                    <div class="flex items-center">
+                        <input id="remember-me" type="checkbox" class="h-3.5 w-3.5 rounded border-gray-300 accent-[#a18b7d] cursor-pointer">
+                        <label for="remember-me" class="ml-2 block text-xs text-gray-700 dark:text-gray-300 cursor-pointer">Remember me</label>
+                    </div>
+                    <a href="#" class="text-[11px] text-light-secondary dark:text-dark-secondary hover:underline">Forgot password?</a>
+                </div>
+                <button type="submit" class="w-full bg-light-primary text-white dark:bg-dark-primary dark:text-black px-6 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition mt-2">Sign In</button>
+            </form>
+
+            <div class="relative flex items-center mb-5">
+                <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                <span class="flex-shrink-0 mx-4 text-gray-400 text-[10px] uppercase tracking-wider">or continue with</span>
+                <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <button class="w-full flex items-center justify-center gap-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2.5 rounded-full text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    <i class="fa-brands fa-google text-base"></i> Google
+                </button>
+                <button class="w-full flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black border border-transparent px-4 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition">
+                    <i class="fa-brands fa-apple text-lg mb-0.5"></i> Apple
+                </button>
+            </div>
+            
+            <p class="text-xs text-center text-gray-500 mt-8">By continuing, you agree to our <a href="#" class="underline hover:text-light-primary dark:hover:text-white">Terms of Service</a> and <a href="#" class="underline hover:text-light-primary dark:hover:text-white">Privacy Policy</a>.</p>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-light-primary dark:bg-dark-primary text-white dark:text-black w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-50 hover:opacity-90">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+            const html = document.documentElement;
+
+            function toggleTheme() {
+                html.classList.toggle('dark');
+                const isDark = html.classList.contains('dark');
+                const icon = isDark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+                if (themeToggleBtn) themeToggleBtn.innerHTML = icon;
+                if (mobileThemeToggleBtn) mobileThemeToggleBtn.innerHTML = icon;
+            }
+
+            if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+            if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+
+            // Check system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                toggleTheme(); // Initial set if dark
+            }
+
+
+            // Mobile Menu
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Scroll Reveal Animation
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Header Scroll Effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-md');
+                } else {
+                    header.classList.remove('shadow-md');
+                }
+            });
+
+            // Simulate Live Activity (Optional lightweight addition)
+            const feed = document.getElementById('activity-feed');
+            if (feed) {
+                setInterval(() => {
+                    // Just an aesthetic subtle pulse on the live indicator
+                }, 5000);
+            }
+
+            // Login Modal
+            const loginModal = document.getElementById('login-modal');
+            const loginBtnDesktop = document.getElementById('login-btn-desktop');
+            const loginBtnMobile = document.getElementById('login-btn-mobile');
+            const closeLoginModal = document.getElementById('close-login-modal');
+            const loginModalBackdrop = document.getElementById('login-modal-backdrop');
+
+            function openLogin(e) {
+                e.preventDefault();
+                loginModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling in background
+            }
+
+            function closeLogin() {
+                loginModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+
+            if(loginBtnDesktop) loginBtnDesktop.addEventListener('click', openLogin);
+            if(loginBtnMobile) loginBtnMobile.addEventListener('click', openLogin);
+            if(closeLoginModal) closeLoginModal.addEventListener('click', closeLogin);
+            if(loginModalBackdrop) loginModalBackdrop.addEventListener('click', closeLogin);
+
+            // Back to Top Button Logic
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    } else {
+                        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                });
+
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
