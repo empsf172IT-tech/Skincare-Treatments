@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUMERA | Premium Skincare Community</title>
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23a18b7d"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z"/></svg>'>
+    <link rel="icon" type="image/svg+xml"
+        href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23a18b7d"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z"/></svg>'>
     <meta name="description"
         content="A global digital community where people share skincare treatment experiences, discover trusted discussions, and ask verified experts questions.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -101,16 +102,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                <a href="#" class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
                     <svg class="w-8 h-8 text-light-secondary dark:text-dark-secondary" fill="currentColor"
                         viewBox="0 0 24 24">
                         <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z" />
                     </svg>
-                    <span class="font-serif text-2xl font-semibold tracking-wider">LUMERA</span>
-                </div>
+                    <span
+                        class="font-serif text-2xl font-semibold tracking-wider text-light-primary dark:text-dark-primary">LUMERA</span>
+                </a>
 
                 <!-- Desktop Nav -->
-                <nav class="hidden md:flex space-x-8 lg:space-x-12 rtl:space-x-reverse" id="desktop-nav">
+                <nav class="hidden lg:flex space-x-8 xl:space-x-12 rtl:space-x-reverse" id="desktop-nav">
                     <a href="#hero"
                         class="text-sm font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Home</a>
                     <a href="#discussions"
@@ -126,7 +128,7 @@
                 </nav>
 
                 <!-- Actions -->
-                <div class="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
+                <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
                     <button id="theme-toggle"
                         class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"><i
                             class="fa-solid fa-moon"></i></button>
@@ -135,7 +137,7 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
+                <div class="lg:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-2xl"><i class="fa-solid fa-bars"></i></button>
                 </div>
             </div>
@@ -143,20 +145,28 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu"
-            class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 absolute w-full">
+            class="hidden lg:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 absolute w-full">
             <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-                <a href="#hero" class="mobile-link block px-3 py-2 text-base font-medium">Home</a>
-                <a href="#discussions" class="mobile-link block px-3 py-2 text-base font-medium">Discussions</a>
-                <a href="#treatments" class="mobile-link block px-3 py-2 text-base font-medium">Treatments</a>
-                <a href="#experts" class="mobile-link block px-3 py-2 text-base font-medium">Experts</a>
-                <a href="#community" class="mobile-link block px-3 py-2 text-base font-medium">Community</a>
-                <a href="#activity" class="mobile-link block px-3 py-2 text-base font-medium">Activity</a>
+                <a href="#hero"
+                    class="mobile-link block px-3 py-2 text-base font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Home</a>
+                <a href="#discussions"
+                    class="mobile-link block px-3 py-2 text-base font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Discussions</a>
+                <a href="#treatments"
+                    class="mobile-link block px-3 py-2 text-base font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Treatments</a>
+                <a href="#experts"
+                    class="mobile-link block px-3 py-2 text-base font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Experts</a>
+                <a href="#community"
+                    class="mobile-link block px-3 py-2 text-base font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Community</a>
+                <a href="#activity"
+                    class="mobile-link block px-3 py-2 text-base font-medium hover:text-light-secondary dark:hover:text-dark-secondary transition">Activity</a>
                 <div
                     class="flex justify-between items-center px-3 py-4 border-t border-gray-100 dark:border-gray-800 mt-2">
+                    <span class="text-base font-medium">Theme</span>
                     <button id="mobile-theme-toggle" class="p-2 bg-gray-100 dark:bg-gray-800 rounded-full"><i
                             class="fa-solid fa-moon"></i></button>
                 </div>
-                <a href="#" id="login-btn-mobile" class="mobile-link block text-center bg-light-primary text-white dark:bg-dark-primary dark:text-black px-5 py-3 rounded-full font-medium mt-4">Login</a>
+                <a href="#" id="login-btn-mobile"
+                    class="mobile-link block text-center bg-light-primary text-white dark:bg-dark-primary dark:text-black px-5 py-3 rounded-full font-medium mt-4">Login</a>
             </div>
         </div>
     </header>
@@ -181,31 +191,31 @@
                             <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                             <span>2,431 members active now</span>
                         </div>
-                        <h1 class="text-5xl md:text-7xl font-serif leading-tight">Better Skin Starts With Better
+                        <h1 class="text-4xl sm:text-5xl md:text-7xl font-serif leading-tight break-words">Better Skin Starts With Better
                             Conversations.</h1>
                         <p
                             class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-lg font-light leading-relaxed">
                             Discover real treatment experiences, discuss routines, ask verified experts, and learn from
                             a trusted global community.
                         </p>
-                        <div class="flex flex-wrap gap-4 pt-4">
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
                             <a href="#discussions"
-                                class="bg-light-primary text-white dark:bg-dark-primary dark:text-black px-8 py-4 rounded-full text-sm font-medium hover:shadow-lg transition-all hover:-translate-y-1">Explore
+                                class="w-full sm:w-auto text-center bg-light-primary text-white dark:bg-dark-primary dark:text-black px-8 py-4 rounded-full text-sm font-medium hover:shadow-lg transition-all hover:-translate-y-1">Explore
                                 Discussions</a>
                             <a href="#experts"
-                                class="border border-light-primary text-light-primary dark:border-dark-primary dark:text-dark-primary px-8 py-4 rounded-full text-sm font-medium hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-black transition-all">Ask
+                                class="w-full sm:w-auto text-center border border-light-primary text-light-primary dark:border-dark-primary dark:text-dark-primary px-8 py-4 rounded-full text-sm font-medium hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-black transition-all">Ask
                                 an Expert</a>
                         </div>
                     </div>
 
-                    <div class="relative h-[600px] hidden lg:block fade-up" style="transition-delay: 200ms;">
+                    <div class="relative h-[400px] sm:h-[500px] lg:h-[600px] mt-12 lg:mt-0 fade-up block" style="transition-delay: 200ms;">
                         <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop"
                             alt="Editorial Beauty"
-                            class="absolute right-0 top-10 w-3/4 h-[500px] object-cover rounded-2xl shadow-2xl">
+                            class="absolute right-0 top-10 w-[90%] lg:w-3/4 h-[300px] sm:h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-2xl">
 
                         <!-- Floating Card 1 -->
                         <div
-                            class="absolute left-0 top-32 bg-white dark:bg-dark-card p-4 rounded-xl shadow-xl glass max-w-xs animate-[bounce_6s_ease-in-out_infinite]">
+                            class="absolute left-0 top-4 lg:top-32 bg-white dark:bg-dark-card p-3 lg:p-4 rounded-xl shadow-xl glass max-w-[200px] sm:max-w-xs animate-[bounce_6s_ease-in-out_infinite] z-20">
                             <div class="flex items-center gap-3 mb-2">
                                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
                                     alt="User" class="w-10 h-10 rounded-full">
@@ -220,7 +230,7 @@
 
                         <!-- Floating Card 2 -->
                         <div
-                            class="absolute right-10 bottom-20 bg-white dark:bg-dark-card p-4 rounded-xl shadow-xl glass max-w-xs animate-[bounce_5s_ease-in-out_infinite_reverse]">
+                            class="absolute right-0 lg:right-10 bottom-4 lg:bottom-20 bg-white dark:bg-dark-card p-3 lg:p-4 rounded-xl shadow-xl glass max-w-[200px] sm:max-w-xs animate-[bounce_5s_ease-in-out_infinite_reverse] z-20">
                             <div
                                 class="flex items-center gap-2 text-xs font-semibold text-blue-600 dark:text-blue-400 mb-2">
                                 <i class="fa-solid fa-circle-check"></i> Verified Expert Answer
@@ -276,13 +286,13 @@
                         <p class="text-gray-600 dark:text-gray-400">Join the conversation with the community.</p>
                     </div>
                     <div
-                        class="flex space-x-2 rtl:space-x-reverse mt-6 md:mt-0 bg-gray-100 dark:bg-gray-800 p-1 rounded-full w-max">
+                        class="flex space-x-2 rtl:space-x-reverse mt-6 md:mt-0 bg-gray-100 dark:bg-gray-800 p-1 rounded-full max-w-full overflow-x-auto no-scrollbar">
                         <button
-                            class="px-6 py-2 rounded-full text-sm font-medium bg-white dark:bg-gray-700 shadow-sm transition">Trending</button>
+                            class="px-4 sm:px-6 py-2 rounded-full text-sm font-medium bg-white dark:bg-gray-700 shadow-sm transition whitespace-nowrap">Trending</button>
                         <button
-                            class="px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition">Latest</button>
+                            class="px-4 sm:px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition whitespace-nowrap">Latest</button>
                         <button
-                            class="px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition">Unanswered</button>
+                            class="px-4 sm:px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition whitespace-nowrap">Unanswered</button>
                     </div>
                 </div>
 
@@ -305,7 +315,7 @@
                                     class="fa-regular fa-bookmark"></i></button>
                         </div>
                         <h3
-                            class="text-xl font-serif font-semibold mb-2 group-hover:text-light-secondary transition-colors">
+                            class="text-xl font-serif font-semibold mb-2 group-hover:text-light-secondary transition-colors flex-grow">
                             What actually helped with persistent adult acne?</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">I've tried salicylic acid,
                             benzoyl peroxide, and niacinamide. While they help temporarily, I keep breaking out along my
@@ -343,7 +353,7 @@
                                     class="fa-regular fa-bookmark"></i></button>
                         </div>
                         <h3
-                            class="text-xl font-serif font-semibold mb-2 group-hover:text-light-secondary transition-colors">
+                            class="text-xl font-serif font-semibold mb-2 group-hover:text-light-secondary transition-colors flex-grow">
                             Retinol irritation: should I push through or reduce frequency?</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Started 0.05% Tretinoin
                             two weeks ago using the sandwich method. Still experiencing significant flaking and
@@ -377,9 +387,9 @@
                         specific skincare concerns and procedures.</p>
                 </div>
 
-                <div class="flex overflow-x-auto gap-6 pb-8 no-scrollbar snap-x fade-up">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-8 fade-up">
                     <!-- Topic Card -->
-                    <div class="min-w-[280px] group cursor-pointer snap-start">
+                    <div class="group cursor-pointer">
                         <div class="relative h-[350px] rounded-2xl overflow-hidden mb-4">
                             <img src="https://images.pexels.com/photos/6476074/pexels-photo-6476074.jpeg"
                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
@@ -393,7 +403,7 @@
                         </div>
                     </div>
                     <!-- Topic Card -->
-                    <div class="min-w-[280px] group cursor-pointer snap-start">
+                    <div class="group cursor-pointer">
                         <div class="relative h-[350px] rounded-2xl overflow-hidden mb-4">
                             <img src="https://images.pexels.com/photos/10222449/pexels-photo-10222449.jpeg"
                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
@@ -407,7 +417,7 @@
                         </div>
                     </div>
                     <!-- Topic Card -->
-                    <div class="min-w-[280px] group cursor-pointer snap-start">
+                    <div class="group cursor-pointer">
                         <div class="relative h-[350px] rounded-2xl overflow-hidden mb-4">
                             <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=600&auto=format&fit=crop"
                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
@@ -421,7 +431,7 @@
                         </div>
                     </div>
                     <!-- Topic Card -->
-                    <div class="min-w-[280px] group cursor-pointer snap-start">
+                    <div class="group cursor-pointer">
                         <div class="relative h-[350px] rounded-2xl overflow-hidden mb-4">
                             <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=600&auto=format&fit=crop"
                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
@@ -456,7 +466,7 @@
 
                     <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
                         <!-- Expert Card -->
-                        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm fade-up"
+                        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm fade-up flex flex-col h-full"
                             style="transition-delay: 100ms;">
                             <div class="flex gap-4 mb-4">
                                 <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop"
@@ -473,7 +483,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 mt-4">
+                            <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 mt-auto">
                                 <p class="text-xs text-gray-500 font-medium mb-1">RECENT ANSWER</p>
                                 <p class="text-sm font-serif italic line-clamp-3">"When introducing Vitamin C and
                                     Retinol, never use them in the same routine. Vitamin C in the morning for
@@ -482,7 +492,7 @@
                         </div>
 
                         <!-- Expert Card -->
-                        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm fade-up"
+                        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm fade-up flex flex-col h-full"
                             style="transition-delay: 200ms;">
                             <div class="flex gap-4 mb-4">
                                 <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&h=150&fit=crop"
@@ -499,7 +509,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 mt-4">
+                            <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 mt-auto">
                                 <p class="text-xs text-gray-500 font-medium mb-1">RECENT ANSWER</p>
                                 <p class="text-sm font-serif italic line-clamp-3">"Post-inflammatory erythema (PIE)
                                     responds best to vascular lasers like Vbeam, whereas post-inflammatory
@@ -522,8 +532,8 @@
 
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Story Card -->
-                    <div class="group cursor-pointer fade-up">
-                        <div class="relative overflow-hidden rounded-2xl mb-6 h-80">
+                    <div class="group cursor-pointer fade-up flex flex-col h-full">
+                        <div class="relative overflow-hidden rounded-2xl mb-6 h-80 shrink-0">
                             <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=800&auto=format&fit=crop"
                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                                 alt="Journey">
@@ -536,11 +546,12 @@
                                 class="w-8 h-8 rounded-full" alt="User">
                             <p class="text-sm font-medium">ElenaV</p>
                         </div>
-                        <h3 class="text-2xl font-serif mb-2 group-hover:text-light-secondary transition">Clearing adult
+                        <h3 class="text-2xl font-serif mb-2 group-hover:text-light-secondary transition flex-grow">
+                            Clearing adult
                             acne with a minimalist routine</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Stripping back my 10-step routine to
                             just a gentle cleanser, moisturizer, and adapalene changed everything.</p>
-                        <div class="flex items-center justify-between text-sm text-gray-500">
+                        <div class="flex items-center justify-between text-sm text-gray-500 mt-auto">
                             <span class="flex items-center gap-1"><i class="fa-solid fa-heart text-red-400"></i>
                                 1.2k</span>
                             <span class="font-medium text-light-primary dark:text-white group-hover:underline">View
@@ -549,8 +560,8 @@
                     </div>
 
                     <!-- Story Card -->
-                    <div class="group cursor-pointer fade-up" style="transition-delay: 100ms;">
-                        <div class="relative overflow-hidden rounded-2xl mb-6 h-80">
+                    <div class="group cursor-pointer fade-up flex flex-col h-full" style="transition-delay: 100ms;">
+                        <div class="relative overflow-hidden rounded-2xl mb-6 h-80 shrink-0">
                             <img src="https://images.pexels.com/photos/6543329/pexels-photo-6543329.jpeg"
                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                                 alt="Journey">
@@ -563,11 +574,12 @@
                                 class="w-8 h-8 rounded-full" alt="User">
                             <p class="text-sm font-medium">David_Skin</p>
                         </div>
-                        <h3 class="text-2xl font-serif mb-2 group-hover:text-light-secondary transition">First Clear +
+                        <h3 class="text-2xl font-serif mb-2 group-hover:text-light-secondary transition flex-grow">First
+                            Clear +
                             Brilliant Laser experience</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Day-by-day diary of recovery, pain
                             levels, and when the 'glow' finally appeared.</p>
-                        <div class="flex items-center justify-between text-sm text-gray-500">
+                        <div class="flex items-center justify-between text-sm text-gray-500 mt-auto">
                             <span class="flex items-center gap-1"><i class="fa-solid fa-heart text-red-400"></i>
                                 845</span>
                             <span class="font-medium text-light-primary dark:text-white group-hover:underline">View
@@ -576,8 +588,8 @@
                     </div>
 
                     <!-- Story Card -->
-                    <div class="group cursor-pointer fade-up" style="transition-delay: 200ms;">
-                        <div class="relative overflow-hidden rounded-2xl mb-6 h-80">
+                    <div class="group cursor-pointer fade-up flex flex-col h-full" style="transition-delay: 200ms;">
+                        <div class="relative overflow-hidden rounded-2xl mb-6 h-80 shrink-0">
                             <img src="https://images.pexels.com/photos/14920146/pexels-photo-14920146.jpeg"
                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                                 alt="Journey">
@@ -590,11 +602,12 @@
                                 class="w-8 h-8 rounded-full" alt="User">
                             <p class="text-sm font-medium">Mia_Glows</p>
                         </div>
-                        <h3 class="text-2xl font-serif mb-2 group-hover:text-light-secondary transition">Fading stubborn
+                        <h3 class="text-2xl font-serif mb-2 group-hover:text-light-secondary transition flex-grow">
+                            Fading stubborn
                             melasma without hydroquinone</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">My protocol of tranexamic acid, azelaic
                             acid, and religious sun protection.</p>
-                        <div class="flex items-center justify-between text-sm text-gray-500">
+                        <div class="flex items-center justify-between text-sm text-gray-500 mt-auto">
                             <span class="flex items-center gap-1"><i class="fa-solid fa-heart text-red-400"></i>
                                 2.1k</span>
                             <span class="font-medium text-light-primary dark:text-white group-hover:underline">View
@@ -760,34 +773,38 @@
         <!-- SECTION 10: COMMUNITY CTA + FOOTER -->
         <section id="cta" class="relative bg-light-primary text-white dark:bg-black pt-24 overflow-hidden">
             <div class="absolute inset-0 z-0 opacity-20">
-                <img src="https://images.unsplash.com/photo-1615397323187-573e04a58b66?q=80&w=2000&auto=format&fit=crop"
-                    alt="Background" class="w-full h-full object-cover mix-blend-luminosity">
+                <img src="https://images.pexels.com/photos/37229304/pexels-photo-37229304.jpeg" alt=""
+                    class="w-full h-full object-cover mix-blend-luminosity">
             </div>
 
             <div
-                class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pb-24 border-b border-gray-700">
+                class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pb-24">
                 <h2 class="text-5xl md:text-6xl font-serif mb-6 fade-up">Your Skin Journey Is Better Together.</h2>
                 <p class="text-xl text-gray-300 mb-10 font-light fade-up" style="transition-delay: 100ms;">Join millions
                     of members sharing experiences, discovering treatments, and achieving healthier skin.</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 fade-up" style="transition-delay: 200ms;">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 fade-up"
+                    style="transition-delay: 200ms;">
                     <button
-                        class="bg-white text-black px-10 py-4 rounded-full font-medium hover:bg-gray-200 transition">Join
+                        class="w-full sm:w-auto text-center bg-white text-black px-10 py-4 rounded-full font-medium hover:bg-gray-200 transition">Join
                         the Community</button>
                     <button
-                        class="border border-gray-500 text-white px-10 py-4 rounded-full font-medium hover:border-white transition">Explore
+                        class="w-full sm:w-auto text-center border border-gray-500 text-white px-10 py-4 rounded-full font-medium hover:border-white transition">Explore
                         Discussions</button>
                 </div>
             </div>
+        </section>
 
-            <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+        <footer class="bg-[#2a2a2a] text-white dark:bg-[#0a0a0a] py-12 border-t border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
                     <div class="col-span-2 lg:col-span-2">
-                        <div class="flex items-center gap-2 mb-4">
-                            <svg class="w-6 h-6 text-light-secondary" fill="currentColor" viewBox="0 0 24 24">
+                        <a href="#" class="flex items-center gap-2 mb-4 cursor-pointer inline-flex">
+                            <svg class="w-8 h-8 text-light-secondary dark:text-dark-secondary" fill="currentColor"
+                                viewBox="0 0 24 24">
                                 <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z" />
                             </svg>
-                            <span class="font-serif text-xl font-semibold tracking-wider">LUMERA</span>
-                        </div>
+                            <span class="font-serif text-2xl font-semibold tracking-wider text-white">LUMERA</span>
+                        </a>
                         <p class="text-gray-400 text-sm max-w-xs mb-6">A premium digital community where people share
                             skincare treatment experiences and connect with verified experts.</p>
                         <div class="flex space-x-4 rtl:space-x-reverse">
@@ -836,75 +853,103 @@
                     <p>&copy; 2026 Lumera Community. All rights reserved.</p>
                     <p class="mt-2 md:mt-0">Designed for Premium Skincare Discussions</p>
                 </div>
-            </footer>
-        </section>
+            </div>
+        </footer>
 
     </main>
 
     <!-- LOGIN MODAL -->
     <div id="login-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center">
         <!-- Backdrop -->
-        <div id="login-modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer transition-opacity"></div>
-        
+        <div id="login-modal-backdrop"
+            class="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer transition-opacity"></div>
+
         <!-- Modal Content -->
-        <div class="relative bg-white dark:bg-dark-card w-full max-w-sm mx-4 rounded-3xl shadow-2xl p-6 z-10 border border-gray-100 dark:border-gray-800">
-            <button id="close-login-modal" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
+        <div
+            class="relative bg-white dark:bg-dark-card w-full max-w-sm mx-4 rounded-3xl shadow-2xl p-6 z-10 border border-gray-100 dark:border-gray-800">
+            <button id="close-login-modal"
+                class="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            
+
             <div class="text-center mb-5">
-                <div class="flex items-center justify-center gap-2 mb-3">
-                    <svg class="w-8 h-8 text-light-secondary dark:text-dark-secondary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z"/></svg>
-                    <span class="text-2xl font-serif font-bold tracking-tight">LUMERA</span>
-                </div>
+                <a href="#" id="modal-logo-link" class="flex items-center justify-center gap-2 mb-3 cursor-pointer">
+                    <svg class="w-8 h-8 text-light-secondary dark:text-dark-secondary" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z" />
+                    </svg>
+                    <span
+                        class="font-serif text-2xl font-semibold tracking-wider text-light-primary dark:text-dark-primary">LUMERA</span>
+                </a>
                 <h3 class="text-xl font-serif font-semibold">Welcome Back</h3>
                 <p class="text-xs text-gray-500 mt-1">Sign in to join the conversation.</p>
             </div>
-            
+
             <form class="space-y-3 mb-5" onsubmit="event.preventDefault();">
                 <div>
-                    <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" for="name">Full Name</label>
-                    <input type="text" id="name" class="w-full px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-secondary focus:border-transparent outline-none transition text-sm" placeholder="Enter your name">
+                    <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" for="name">Full
+                        Name</label>
+                    <input type="text" id="name"
+                        class="w-full px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-secondary focus:border-transparent outline-none transition text-sm"
+                        placeholder="Enter your name">
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" for="email">Email address</label>
-                    <input type="email" id="email" class="w-full px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-secondary focus:border-transparent outline-none transition text-sm" placeholder="Enter your email">
+                    <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" for="email">Email
+                        address</label>
+                    <input type="email" id="email"
+                        class="w-full px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-secondary focus:border-transparent outline-none transition text-sm"
+                        placeholder="Enter your email">
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" for="password">Password</label>
-                    <input type="password" id="password" class="w-full px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-secondary focus:border-transparent outline-none transition text-sm" placeholder="Enter your password">
+                    <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1"
+                        for="password">Password</label>
+                    <input type="password" id="password"
+                        class="w-full px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-light-secondary dark:focus:ring-dark-secondary focus:border-transparent outline-none transition text-sm"
+                        placeholder="Enter your password">
                 </div>
                 <div class="flex items-center justify-between pt-1">
                     <div class="flex items-center">
-                        <input id="remember-me" type="checkbox" class="h-3.5 w-3.5 rounded border-gray-300 accent-[#a18b7d] cursor-pointer">
-                        <label for="remember-me" class="ml-2 block text-xs text-gray-700 dark:text-gray-300 cursor-pointer">Remember me</label>
+                        <input id="remember-me" type="checkbox"
+                            class="h-3.5 w-3.5 rounded border-gray-300 accent-[#a18b7d] cursor-pointer">
+                        <label for="remember-me"
+                            class="ml-2 block text-xs text-gray-700 dark:text-gray-300 cursor-pointer">Remember
+                            me</label>
                     </div>
-                    <a href="#" class="text-[11px] text-light-secondary dark:text-dark-secondary hover:underline">Forgot password?</a>
+                    <a href="#" class="text-[11px] text-light-secondary dark:text-dark-secondary hover:underline">Forgot
+                        password?</a>
                 </div>
-                <button type="submit" class="w-full bg-light-primary text-white dark:bg-dark-primary dark:text-black px-6 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition mt-2">Sign In</button>
+                <button type="submit"
+                    class="w-full bg-light-primary text-white dark:bg-dark-primary dark:text-black px-6 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition mt-2">Sign
+                    In</button>
             </form>
 
             <div class="relative flex items-center mb-5">
                 <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
-                <span class="flex-shrink-0 mx-4 text-gray-400 text-[10px] uppercase tracking-wider">or continue with</span>
+                <span class="flex-shrink-0 mx-4 text-gray-400 text-[10px] uppercase tracking-wider">or continue
+                    with</span>
                 <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
             </div>
 
             <div class="grid grid-cols-2 gap-3">
-                <button class="w-full flex items-center justify-center gap-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2.5 rounded-full text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                <button
+                    class="w-full flex items-center justify-center gap-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2.5 rounded-full text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">
                     <i class="fa-brands fa-google text-base"></i> Google
                 </button>
-                <button class="w-full flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black border border-transparent px-4 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition">
+                <button
+                    class="w-full flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black border border-transparent px-4 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition">
                     <i class="fa-brands fa-apple text-lg mb-0.5"></i> Apple
                 </button>
             </div>
-            
-            <p class="text-xs text-center text-gray-500 mt-8">By continuing, you agree to our <a href="#" class="underline hover:text-light-primary dark:hover:text-white">Terms of Service</a> and <a href="#" class="underline hover:text-light-primary dark:hover:text-white">Privacy Policy</a>.</p>
+
+            <p class="text-xs text-center text-gray-500 mt-8">By continuing, you agree to our <a href="#"
+                    class="underline hover:text-light-primary dark:hover:text-white">Terms of Service</a> and <a
+                    href="#" class="underline hover:text-light-primary dark:hover:text-white">Privacy Policy</a>.</p>
         </div>
     </div>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-light-primary dark:bg-dark-primary text-white dark:text-black w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-50 hover:opacity-90">
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 bg-light-primary dark:bg-dark-primary text-white dark:text-black w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-50 hover:opacity-90">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
@@ -1005,10 +1050,45 @@
                 document.body.style.overflow = '';
             }
 
-            if(loginBtnDesktop) loginBtnDesktop.addEventListener('click', openLogin);
-            if(loginBtnMobile) loginBtnMobile.addEventListener('click', openLogin);
-            if(closeLoginModal) closeLoginModal.addEventListener('click', closeLogin);
-            if(loginModalBackdrop) loginModalBackdrop.addEventListener('click', closeLogin);
+            if (loginBtnDesktop) loginBtnDesktop.addEventListener('click', openLogin);
+            if (loginBtnMobile) loginBtnMobile.addEventListener('click', openLogin);
+            if (closeLoginModal) closeLoginModal.addEventListener('click', closeLogin);
+            if (loginModalBackdrop) loginModalBackdrop.addEventListener('click', closeLogin);
+
+            const modalLogoLink = document.getElementById('modal-logo-link');
+            if (modalLogoLink) modalLogoLink.addEventListener('click', closeLogin);
+
+            // Active Navigation Highlighting
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#desktop-nav a, #mobile-menu a.mobile-link');
+
+            function highlightNav() {
+                let scrollY = window.scrollY;
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionHeight = section.offsetHeight;
+                    const sectionTop = section.offsetTop - 150; // Offset for fixed header
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                // If scrolled to very top, active is hero
+                if (scrollY < 100) {
+                    current = 'hero';
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-light-secondary', 'dark:text-dark-secondary');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('text-light-secondary', 'dark:text-dark-secondary');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', highlightNav);
+            highlightNav(); // Initialize on load
 
             // Back to Top Button Logic
             const backToTopBtn = document.getElementById('back-to-top');
